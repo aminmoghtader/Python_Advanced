@@ -1,0 +1,28 @@
+version: 1
+
+formatters:
+  s_format: 
+    format: '%(name)s:%(levelname)s %(message)s'
+  f_format: 
+    format: '%(asctime)s %(message)s'
+    data_format: "day:%d%H:%M:%S"
+    
+handlers:
+  s_handler:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: s_format
+  f_handler:
+    class: logging.FileHandler
+    level: WARNING
+    formatter: f_format
+    filename: test1.log
+    mode: w
+
+loggers:
+  s_logger:  
+    level: DEBUG
+    handlers: [s_handler]
+  f_logger:
+    level: WARNING
+    handlers: [f_handler]
